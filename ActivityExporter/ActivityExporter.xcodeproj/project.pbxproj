@@ -14,6 +14,8 @@
 		1BC6EBB2230969E9007437E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6EBB0230969E9007437E5 /* LaunchScreen.storyboard */; };
 		1BC6EBBD230969E9007437E5 /* ActivityExporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6EBBC230969E9007437E5 /* ActivityExporterTests.swift */; };
 		1BC6EBC8230969E9007437E5 /* ActivityExporterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6EBC7230969E9007437E5 /* ActivityExporterUITests.swift */; };
+		1BC6EBD82309A901007437E5 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC6EBD72309A901007437E5 /* HealthKit.framework */; };
+		1BC6EBDA2309AAB1007437E5 /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6EBD92309AAB1007437E5 /* HealthKitSetupAssistant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,9 @@
 		1BC6EBC3230969E9007437E5 /* ActivityExporterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActivityExporterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC6EBC7230969E9007437E5 /* ActivityExporterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityExporterUITests.swift; sourceTree = "<group>"; };
 		1BC6EBC9230969E9007437E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BC6EBD52309A901007437E5 /* ActivityExporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ActivityExporter.entitlements; sourceTree = "<group>"; };
+		1BC6EBD72309A901007437E5 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		1BC6EBD92309AAB1007437E5 /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BC6EBD82309A901007437E5 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,7 @@
 				1BC6EBBB230969E9007437E5 /* ActivityExporterTests */,
 				1BC6EBC6230969E9007437E5 /* ActivityExporterUITests */,
 				1BC6EBA5230969E7007437E5 /* Products */,
+				1BC6EBD62309A901007437E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +104,14 @@
 		1BC6EBA6230969E7007437E5 /* ActivityExporter */ = {
 			isa = PBXGroup;
 			children = (
+				1BC6EBD52309A901007437E5 /* ActivityExporter.entitlements */,
 				1BC6EBA7230969E7007437E5 /* AppDelegate.swift */,
 				1BC6EBA9230969E7007437E5 /* ViewController.swift */,
 				1BC6EBAB230969E7007437E5 /* Main.storyboard */,
 				1BC6EBAE230969E9007437E5 /* Assets.xcassets */,
 				1BC6EBB0230969E9007437E5 /* LaunchScreen.storyboard */,
 				1BC6EBB3230969E9007437E5 /* Info.plist */,
+				1BC6EBD92309AAB1007437E5 /* HealthKitSetupAssistant.swift */,
 			);
 			path = ActivityExporter;
 			sourceTree = "<group>";
@@ -123,6 +132,14 @@
 				1BC6EBC9230969E9007437E5 /* Info.plist */,
 			);
 			path = ActivityExporterUITests;
+			sourceTree = "<group>";
+		};
+		1BC6EBD62309A901007437E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BC6EBD72309A901007437E5 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +210,11 @@
 				TargetAttributes = {
 					1BC6EBA3230969E7007437E5 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					1BC6EBB7230969E9007437E5 = {
 						CreatedOnToolsVersion = 10.3;
@@ -256,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BC6EBDA2309AAB1007437E5 /* HealthKitSetupAssistant.swift in Sources */,
 				1BC6EBAA230969E7007437E5 /* ViewController.swift in Sources */,
 				1BC6EBA8230969E7007437E5 /* AppDelegate.swift in Sources */,
 			);
@@ -432,8 +455,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ActivityExporter/ActivityExporter.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BZJ4GWTZ9N;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ActivityExporter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -441,6 +466,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = be.lavergne.ActivityExporter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -450,8 +476,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ActivityExporter/ActivityExporter.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BZJ4GWTZ9N;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ActivityExporter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -459,6 +487,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = be.lavergne.ActivityExporter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

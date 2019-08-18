@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSHealthShareUsageDescription</key>
+	<string>We will need this authorization to be able to share your activities to third party app like Strava.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>We will need this authorization to be able to share your activities to third party app like Strava.</string>
 </dict>
 </plist>
